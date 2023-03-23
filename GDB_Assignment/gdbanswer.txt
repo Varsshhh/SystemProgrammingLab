@@ -1,0 +1,26 @@
+s=18931
+
+//How I found s using gdb: (binary search)
+
+$ gdb oops     #step-1: opening with gdb
+
+$ break 16      #step-2: adding break  point at line 16 where r=f(n) is gonna be executed
+
+$ run 21CS10073      #step-3: running the program with my roll no
+
+$set var n=15000     #step-4: changing value of variable n to find our answer
+
+$ continue              #step-5: continue to the end of program where result f(n) will be printed
+
+//now after executing these five steps, check the value of f(n) which is f(15000) here,
+
+// if f(15000)==1 -> check in (10000,15000) for s
+
+//else if f(15000)==0 -> check in (15000,20000) for s
+
+//we have to repeat the steps 3,4,5 where in step 4 we'll modify the value of n depending upon the value of previous f(n)
+
+//by this method I've got s to be 18931
+
+$ quit    #step-6: quitting after finding our s
+
